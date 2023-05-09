@@ -1,0 +1,10 @@
+{
+  "name": "@pi/root",
+  "version": "1.0.0",
+  "devDependencies": {
+    "nx": "15.7.2"
+  },
+  "engines": {
+    "pnpm": ">= 7.27.1"
+  }
+}

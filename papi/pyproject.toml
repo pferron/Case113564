@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 88
+# target-version = ['py36']  # Not for the whole repo yet. Still got some py2 around.
+include = '\.py$'
+exclude = '''
+
+(
+  /(
+    | \.git               # root of the project
+  )/
+  | etc/*local\.conf\.py
+)
+'''

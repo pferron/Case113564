@@ -1,0 +1,146 @@
+{
+  "name": "@pi/deploy-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test application to serve as a proof of concept for individual deploys",
+  "license": "MIT",
+  "author": "Xeneta",
+  "exports": {
+    ".": "./src",
+    "./*": "./src/*",
+    "./**": "./src/**",
+    "./**/*": "./src/**/*",
+    "./config/*": "./config/*.js",
+    "./package.json": "./package.json"
+  },
+  "main": "src/index.tsx",
+  "scripts": {
+    "build:dev": "webpack --config './webpack.config.js' --env environment=development --mode development",
+    "build:prod": "webpack --config './webpack.config.js' --env environment=production --mode production",
+    "build:stage": "webpack --config './webpack.config.js' --env environment=staging --mode production",
+    "lint": "pnpm lint:ts && pnpm lint:styles",
+    "lint:styles": "stylelint 'src/**/*.{ts,tsx}'",
+    "lint:ts": "eslint './src' --ext '.ts,.tsx'",
+    "serve": "webpack serve --config ./webpack.config.js --env environment=development --mode development",
+    "test": "jest",
+    "watch": "webpack --watch --config './webpack.config.js' --env environment=development --mode development"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.6",
+    "isomorphic-fetch": "^3.0.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-is": "^18.2.0",
+    "react-redux": "7.2.9",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.5",
+    "styled-normalize": "^8.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@stylelint/postcss-css-in-js": "^0.38.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "12",
+    "@types/jest": "^29.4.0",
+    "@types/react": "^16",
+    "@types/react-dom": "^16",
+    "@types/react-redux": "^7.1.25",
+    "@types/react-router-dom": "^5.2.0",
+    "@types/styled-components": "^5.1.26",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-styled-components": "^2.0.7",
+    "css-loader": "^6.7.3",
+    "dotenv": "^16.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.4.2",
+    "jest-environment-jsdom": "^29.4.2",
+    "msw": "^1.0.0",
+    "postcss": "^8.4.21",
+    "postcss-styled": "^0.34.0",
+    "postcss-syntax": "^0.36.2",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.0.5",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "nx": {
+    "namedInputs": {
+      "default": [
+        "!{projectRoot}/public/**/*",
+        "!{projectRoot}/.webpack_cache/**/*",
+        "!{projectRoot}/src/**/*.d.ts"
+      ]
+    },
+    "targets": {
+      "test": {
+        "inputs": [
+          "default"
+        ]
+      },
+      "lint": {
+        "inputs": [
+          "default"
+        ]
+      },
+      "lint:styles": {
+        "inputs": [
+          "default"
+        ]
+      },
+      "lint:ts": {
+        "inputs": [
+          "default"
+        ]
+      },
+      "build:dev": {
+        "inputs": [
+          "default"
+        ],
+        "outputs": [
+          "{projectRoot}/public/**/*"
+        ]
+      },
+      "build:stage": {
+        "inputs": [
+          "default"
+        ],
+        "outputs": [
+          "{projectRoot}/public/**/*"
+        ]
+      },
+      "build:prod": {
+        "inputs": [
+          "default"
+        ],
+        "outputs": [
+          "{projectRoot}/public/**/*"
+        ]
+      }
+    }
+  }
+}

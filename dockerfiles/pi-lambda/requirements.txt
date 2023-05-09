@@ -1,0 +1,8 @@
+awslambdaric==1.2.1
+datadog-lambda==3.52.0
+Jinja2==3.1.2
+MarkupSafe==2.0.1
+PyExcelerate==0.10.0
+pyminizip==0.2.5
+pytz==2021.3
+six==1.16.0

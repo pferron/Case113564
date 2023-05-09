@@ -1,0 +1,84 @@
+{
+  "name": "@intarwebs/root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend monorepo containing multiple packages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xeneta/pi"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Xeneta AS",
+  "workspaces": [
+    "packages/apps/*",
+    "packages/shared/*"
+  ],
+  "scripts": {
+    "build:dev": "lerna run --parallel build:dev --stream",
+    "build:dist": "lerna run --parallel build:dist --stream",
+    "build:stage": "lerna run --parallel build:stage --stream",
+    "lint": "lerna run --parallel lint --stream",
+    "test": "lerna run --parallel test --stream",
+    "watch": "lerna run --parallel watch --stream"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{md,mdx,json}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    ">0.25%",
+    "ie 11",
+    "not op_mini all"
+  ],
+  "resolutions": {
+    "async": "^2.6.4",
+    "d3-color": "^3.1.0",
+    "dot-prop": "^4.2.1",
+    "ejs": "^3.1.7",
+    "elliptic": "^6.5.3",
+    "hosted-git-info": "^2.8.9",
+    "http-proxy": "^1.18.1",
+    "immer": "^9.0.6",
+    "is-svg": "^4.2.2",
+    "js-yaml": "^3.13.1",
+    "kind-of": "^6.0.3",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.7",
+    "parse-path": "^5.0.0",
+    "parse-url": "^8.1.0",
+    "prismjs": "^1.27.0",
+    "serialize-javascript": "^3.1.0",
+    "sockjs": "^0.3.20",
+    "ssri": "^8.0.1",
+    "tree-kill": "^1.2.2",
+    "trim": "^0.0.3",
+    "trim-newlines": "^3.0.1",
+    "url-parse": "^1.5.6",
+    "websocket-extensions": "^0.1.4",
+    "y18n": "^4.0.1",
+    "yargs-parser": "^20.2.7",
+    "loader-utils": "^2.0.3"
+  },
+  "dependencies": {
+    "lerna": "^4.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "lint-staged": "^12.4.1",
+    "path": "^0.12.7",
+    "prettier": "2.3.2"
+  },
+  "engines": {
+    "node": "v16.16.0",
+    "yarn": "v1.22.19"
+  }
+}
