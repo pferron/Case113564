@@ -21,7 +21,7 @@ fabric2==2.6.0
 factory_boy==3.2.0
 flask-admin==1.6.0
 flask-principal==0.4.0
-flask==2.0.3
+flask==2.3.2
 fuzzywuzzy==0.16.0
 headless-pdfkit==0.1.5
 invoke==1.6.0
